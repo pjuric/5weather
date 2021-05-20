@@ -5,6 +5,8 @@ import { API_KEY } from '../../../keys'
 
 const city = ({ actual }) => {
 
+    console.log(actual)
+
     return (
         <div className="background">
             <Container>
@@ -20,7 +22,7 @@ const city = ({ actual }) => {
                     <IconDetails>
                         <Item>
                             <Image src="/icons/temp.svg" width="20px" height=""/>
-                            <p>{actual.main.temp} °C</p> <span>(feels like {actual.main.feels_like} °C)</span>
+                            <p>{actual.main.temp} °C</p><span>(feels like {actual.main.feels_like} °C)</span>
                         </Item>
                         <Item>
                             <Image src="/icons/humidity.svg" width="35px" height=""/>
@@ -37,7 +39,12 @@ const city = ({ actual }) => {
                     </IconDetails>
                 </MainSection>
                 <InputSection>
-                    
+                    <Image src="/icons/logo.svg" width="" height=""/>
+                    <Input>
+                        <p>Search weather conditions for another place...</p>
+                        <input type="text" placeholder={actual.name}/>
+                    </Input>
+                    <Image src="/icons/woman.svg" width="" height=""/>
                 </InputSection>
             </Container>
         </div>
@@ -62,6 +69,7 @@ const Container = styled.div`
     justify-content: space-evenly;
     align-items: center;
     border-radius: 25px;
+    height: 100%;
 
 `
 
@@ -116,5 +124,26 @@ const Item = styled.div`
 `
 
 const InputSection = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 10px 0;
+`
 
+const Input = styled.div`
+    align-items: center;
+
+    input {
+        width: 100%;
+        height: 50px;
+        border-radius: 10px;
+        color: black;
+        font-size: 20px;
+        padding: 0 10px;
+
+        &:focus{
+            outline: none;
+        }
+    }
 `
