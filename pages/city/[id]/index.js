@@ -1,11 +1,21 @@
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import styled from 'styled-components';
 import { API_KEY } from '../../../keys'
+import { useRouter } from 'next/router'
 
 const city = ({ actual }) => {
 
-    console.log(actual)
+    const router = useRouter()
+    const searchInputRef = useRef(null)
+    const [value, setValue] = useState(router.query.id)
+
+    const search = (e) => {
+        e.preventDefault()
+        const term = searchInputRef.current.value
+        if(!term) return;
+        router.push(`/city/${term}`)
+    }
 
     return (
         <div className="background">
@@ -42,7 +52,8 @@ const city = ({ actual }) => {
                     <Image src="/icons/logo.svg" width="" height=""/>
                     <Input>
                         <p>Search weather conditions for another place...</p>
-                        <input type="text" placeholder={actual.name}/>
+                        <input type="text" placeholder={actual.name} ref={searchInputRef}/>
+                        <button onClick={search}>Search</button>
                     </Input>
                     <Image src="/icons/woman.svg" width="" height=""/>
                 </InputSection>
@@ -54,7 +65,8 @@ const city = ({ actual }) => {
 export default city;
 
 export const getServerSideProps = async (context) =>{
-    const res = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${context.params.id}&units=metric&appid=${API_KEY}`)
+    const id = context.params.id
+    const res = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${id}&units=metric&appid=${API_KEY}`)
     const actual = await res.json()
   
     return {
@@ -132,7 +144,7 @@ const InputSection = styled.div`
 `
 
 const Input = styled.div`
-    align-items: center;
+    align-items: flex-start;
 
     input {
         width: 100%;
@@ -145,5 +157,15 @@ const Input = styled.div`
         &:focus{
             outline: none;
         }
+    }
+
+    button{
+        border-radius: 5px;
+        width:100px;
+        height: 40px;
+        border: none;
+        font-size: 15px;
+        margin-top: 10px;
+        cursor: pointer;
     }
 `
