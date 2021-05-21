@@ -20,7 +20,7 @@ export default function Home({ results }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container>
-        <Image className="left" src="/icons/left.svg" width="300px" height=""/>
+        <Image className="image" src="/icons/left.svg" width="300px" height=""/>
         <MainSection>
           <Image src="/icons/logo.svg" width="" height="100px"/>
           <p>Search weather condition for...</p>
@@ -31,7 +31,7 @@ export default function Home({ results }) {
           <p>...or any other place</p>
           <Button onClick={seeDetails}>Start</Button>
         </MainSection>
-        <Image src="/icons/right.svg" width="300px" height=""/>
+        <Image className="image" src="/icons/right.svg" width="300px" height=""/>
       </Container>
     </div>
   )
@@ -69,6 +69,11 @@ const MainSection = styled.div`
     font-size: 20px;
     font-weight: 200;
     color: #9AC1D9;
+  }
+
+  @media (max-width: 980px) {
+    background: none;
+    height: 550px;
   }
 
 `

@@ -7,16 +7,6 @@
   font-family: 'Poppins', sans-serif;
 }
 
-/* @media screen and (max-width: 992px) {
-  * {
-    flex-direction: column;
-  }
-
-  body {
-    overflow: auto;
-  }
-} */
-
 .background {
   color: #E9EFF2;
   background: rgb(86,115,140);
@@ -29,4 +19,18 @@
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.image {
+  display: block !important;
+}
+
+@media (max-width: 980px) {
+  .image{
+      display: none !important;
+  }
+
+  .background{
+    overflow: auto !important;
+  }
 }
