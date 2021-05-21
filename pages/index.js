@@ -37,6 +37,7 @@ export default function Home({ results }) {
 }
 
 export async function getServerSideProps() {
+  const GEO_KEY = process.env.GEO_KEY
   const data = await fetch(`https://geolocation-db.com/json/${GEO_KEY}`)
       .then(response => response.json())
   return {

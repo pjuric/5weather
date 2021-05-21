@@ -79,6 +79,7 @@ export default city;
 
 export const getServerSideProps = async (context) =>{
     const id = context.params.id
+    const API_KEY = process.env.API_KEY
     const uri = id;
     const encoded = encodeURI(uri);
     const res = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${encoded}&units=metric&appid=${API_KEY}`)
