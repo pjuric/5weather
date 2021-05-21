@@ -44,7 +44,7 @@ const city = ({ actual }) => {
                                     <p>{actual.main.humidity}%</p>
                                 </Item>
                             </Tooltip>
-                            <Tooltip title="Wind Speed" placement="right">
+                            <Tooltip title="Wind Speed" placement="left">
                                 <Item>
                                     <Image src="/icons/wind.svg" width="35px" height=""/>
                                     <p>{actual.wind.speed} m/s</p>

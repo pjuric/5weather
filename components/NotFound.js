@@ -9,7 +9,7 @@ function NotFound() {
     return (
         <Container>
             <h1>Place not found!</h1>
-            <p>Please enter a valid name of the city.</p>
+            <p>Please enter a valid name.</p>
             <button onClick={() => router.back()}>Go Back</button>
         </Container>
     )
