@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components';
-import { API_KEY } from '../../../keys'
 import { useRouter } from 'next/router'
 import NotFound from '../../../components/NotFound'
 import Tooltip from '@material-ui/core/Tooltip'

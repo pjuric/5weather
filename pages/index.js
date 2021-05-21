@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styled from 'styled-components'
-import { GEO_KEY } from '../keys'
 import { useRouter } from 'next/router';
 
 export default function Home({ results }) {
